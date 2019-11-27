@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="#ffc021"
+
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <ImageView
-        android:layout_margin="10dp"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="4"
-        android:id="@+id/ima"
-        />
+   <de.hdodenhof.circleimageview.CircleImageView
+       android:layout_width="150dp"
+       android:layout_height="150dp"
+       android:src="@drawable/lciop"
+       />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -36,11 +34,11 @@
                 android:layout_weight="1"
                 android:id="@+id/money"
                 />
+
             <TextView
+                android:id="@+id/sport"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:id="@+id/sport"
-                />
+                android:layout_weight="1" />
         </LinearLayout>
 </LinearLayout>
