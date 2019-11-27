@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    List<com.example.listviewexample.Player> list;
+    List<Player> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +22,13 @@ public class MainActivity extends AppCompatActivity {
     }
     //Todo create method that will fill list of players
     public void fill_player(){
-        list.add(new Player("Lebron James", 34, 13, "NBA Basketball", R.drawable.lebron));
-        list.add(new Player("Lciop", 30, 9, "CR Esports",  R.drawable.lciop));
-        list.add(new Player("Aron Baynes", 33, 7, "NBA Basketball",R.drawable.Aron));
-        list.add(new Player("Reggie Bullock",28, 0,"NBA Basketball",R.drawable.Reggie));
-        list.add(new Player("Robert Covington",29, 6, "NBA Basketball",R.drawable.Robert));
-        list.add(new Player("Derrick Favors",28,9, "NBA Basketball",R.drawable.Derrick));
-        list.add(new Player("Patty Mills", 31, 10, "NBA Basketball",R.drawable.Patty));
+        list.add(new Player("Lebron James", 34, (long)13, "NBA Basketball", R.drawable.lebron));
+        list.add(new Player("Lciop", 30, (long)9, "CR Esports",  R.drawable.lciop));
+        list.add(new Player("Aron Baynes", 33, (long)7, "NBA Basketball",R.drawable.aron));
+        list.add(new Player("Reggie Bullock",28, (long)0,"NBA Basketball",R.drawable.reggie));
+        list.add(new Player("Robert Covington",29, (long)6, "NBA Basketball",R.drawable.robert));
+        list.add(new Player("Derrick Favors",28,(long)9, "NBA Basketball",R.drawable.derrick));
+        list.add(new Player("Patty Mills", 31, (long)10, "NBA Basketball",R.drawable.patty));
         //player.add(new Player(""))
     }
 }

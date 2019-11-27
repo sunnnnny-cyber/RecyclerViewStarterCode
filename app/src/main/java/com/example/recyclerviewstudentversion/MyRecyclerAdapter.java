@@ -22,11 +22,11 @@ import java.util.List;
 //onBindViewHolder
 //getItemCount
 public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.MyViewHolder> {
-    List<com.example.listviewexample.Player> listOfPlayers;
+    List<Player> listOfPlayers;
     Context context;
     int posi;
 
-    public MyRecyclerAdapter(@NonNull List<com.example.listviewexample.Player> objects) {
+    public MyRecyclerAdapter(@NonNull List<Player> objects) {
         listOfPlayers = objects;
     }
 

@@ -1,13 +1,14 @@
-package com.example.listviewexample;
+package com.example.recyclerviewstudentversion;
 
 import android.widget.ImageView;
 
 public class Player {
+    int pictureAddress;
     //Todo finish the class player
     // Todo 5 member variables
     String name;
     int age;
-    Long worth;
+    long worth;
     String main_sport;
 
     int image;
@@ -29,7 +30,7 @@ public class Player {
     }
 
 
-    public Player(String name, int age, double worth, String main_sport,  int pictureAddress) {
+    public Player(String name, int age, long worth, String main_sport,  int pictureAddress) {
         this.name = name;
         this.age = age;
         this.worth = worth;
@@ -49,7 +50,7 @@ public class Player {
         this.age = age;
     }
 
-    public Long getWorth() {
+    public long getWorth() {
         return worth;
     }
 
