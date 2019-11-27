@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    List<Player> list;
+    List<com.example.listviewexample.Player> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
