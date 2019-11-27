@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.w3c.dom.Text;
 
 import java.util.List;
+
 
 // Todo Implement methods required
 //onCreateViewHolder()
@@ -37,6 +39,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
         return viewHolder;
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
     holder.age.setText(listOfPlayers.get(position).getAge()+"");
@@ -45,6 +48,8 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
     holder.sport.setText(listOfPlayers.get(position).getMain_sport()+"");
     int i = listOfPlayers.get(position).getImage();
     holder.imageView.setImageResource(i);
+
+
 
     }
 

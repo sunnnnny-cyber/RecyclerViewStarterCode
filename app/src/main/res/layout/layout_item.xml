@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:padding="50dp">
+<de.hdodenhof.circleimageview.CircleImageView
+    android:layout_width="150dp"
+    android:layout_height="150dp"
+    android:src="@drawable/lciop"
+    android:id="@+id/picture"
+    />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/picture"
+        android:text="lciop"
+        android:textColor="#000033"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_toRightOf="@id/picture"
+        android:textColor="#000033"
+        android:text="lciop"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/worth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="20dp"
+        android:layout_toRightOf="@id/picture"
+        android:text="30"
+        android:textColor="#000033"
+        />
+    <TextView
+        android:id="@+id/main_sport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="20dp"
+        android:layout_toRightOf="@id/picture"
+        android:text="Esports player"
+        android:textColor="#000033"
+        />
+</RelativeLayout>

@@ -9,6 +9,7 @@ public class Player {
     int age;
     Long worth;
     String main_sport;
+
     int image;
     String wiki;
     //Todo name, age, worth(money), main sport and int image resource from drawable
@@ -20,10 +21,20 @@ public class Player {
         main_sport = main_sport_I;
         image = image_I;
         this.wiki=wiki;
+
     }
 
     public String getName() {
         return name;
+    }
+
+
+    public Player(String name, int age, double worth, String main_sport,  int pictureAddress) {
+        this.name = name;
+        this.age = age;
+        this.worth = worth;
+        this.main_sport=main_sport;
+        this.pictureAddress=pictureAddress;
     }
 
     public void setName(String name) {
@@ -58,8 +69,10 @@ public class Player {
         return image;
     }
 
+
     public void setImage(int image) {
         this.image = image;
     }
     // use Android Studio for fast writing code, find Code->Generate
+
 }
