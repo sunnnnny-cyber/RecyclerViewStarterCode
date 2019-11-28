@@ -10,21 +10,10 @@ public class Player {
     int age;
     long worth;
     String main_sport;
-
     int image;
     String wiki;
     //Todo name, age, worth(money), main sport and int image resource from drawable
     //Todo create constructor and getters and setters
-    public Player(String name_I, int age_I, Long worth_I, String main_sport_I, int image_I,String wiki){
-        name = name_I;
-        age = age_I;
-        worth = worth_I;
-        main_sport = main_sport_I;
-        image = image_I;
-        this.wiki=wiki;
-
-    }
-
     public String getName() {
         return name;
     }

@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(new Player("Robert Covington",29, (long)6, "NBA Basketball",R.drawable.robert));
         list.add(new Player("Derrick Favors",28,(long)9, "NBA Basketball",R.drawable.derrick));
         list.add(new Player("Patty Mills", 31, (long)10, "NBA Basketball",R.drawable.patty));
+
         //player.add(new Player(""))
     }
 }

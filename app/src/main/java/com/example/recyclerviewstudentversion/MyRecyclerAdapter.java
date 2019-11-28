@@ -34,7 +34,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View listItem= layoutInflater.inflate(R.layout.single_player_view, parent, false);
+        View listItem= layoutInflater.inflate(R.layout.layout_item, parent, false);
         MyViewHolder viewHolder = new MyViewHolder(listItem);
         return viewHolder;
     }
@@ -72,9 +72,9 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
             super(single_player_view);
             name = single_player_view.findViewById(R.id.name);
             age = single_player_view.findViewById(R.id.age);
-            sport = single_player_view.findViewById((R.id.sport));
-            worth = single_player_view.findViewById((R.id.sport));
-            imageView = single_player_view.findViewById(R.id.ima);
+            sport = single_player_view.findViewById((R.id.main_sport));
+            worth = single_player_view.findViewById((R.id.worth));
+            imageView = single_player_view.findViewById(R.id.picture);
         }
     }
 }
