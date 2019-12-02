@@ -22,11 +22,11 @@ import java.util.List;
 //onBindViewHolder
 //getItemCount
 public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.MyViewHolder> {
-    List<com.example.listviewexample.Player> listOfPlayers;
+    List<Player> listOfPlayers;
     Context context;
     int posi;
 
-    public MyRecyclerAdapter(@NonNull List<com.example.listviewexample.Player> objects) {
+    public MyRecyclerAdapter(@NonNull List<Player> objects) {
         listOfPlayers = objects;
     }
 
@@ -42,16 +42,13 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-    holder.age.setText(listOfPlayers.get(position).getAge()+"");
-    holder.name.setText(listOfPlayers.get(position).getName()+"");
-    holder.worth.setText(listOfPlayers.get(position).getWorth()+"");
-    holder.sport.setText(listOfPlayers.get(position).getMain_sport()+"");
-    int i = listOfPlayers.get(position).getImage();
-    holder.imageView.setImageResource(i);
-
-
-
-    }
+        holder.name.setText(listOfPlayers.get(position).getName()+"");
+        holder.age.setText(listOfPlayers.get(position).getAge()+"");
+        holder.worth.setText(listOfPlayers.get(position).getWorth()+"");
+        holder.sport.setText(listOfPlayers.get(position).getMain_sport()+"");
+        int i = listOfPlayers.get(position).getImage();
+        holder.imageView.setImageResource(i);
+        }
 
     @Override
     public int getItemCount() {
@@ -73,7 +70,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
             name = single_player_view.findViewById(R.id.name);
             age = single_player_view.findViewById(R.id.age);
             sport = single_player_view.findViewById((R.id.sport));
-            worth = single_player_view.findViewById((R.id.sport));
+            worth = single_player_view.findViewById((R.id.money));
             imageView = single_player_view.findViewById(R.id.ima);
         }
     }
