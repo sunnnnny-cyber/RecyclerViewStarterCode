@@ -1,6 +1,7 @@
 package com.example.recyclerviewstudentversion;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,18 +19,36 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     List<Player> listPlayers;
+    List<Player> players;
+    ItemTouchHelper mIth = new ItemTouchHelper(
+            new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+                public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                    final int fromPos = viewHolder.getAdapterPosition();
+                    final int toPos = target.getAdapterPosition();
+                    Player targetUser = listPlayers.get(fromPos);
+                    listPlayers.remove(fromPos);
+                    listPlayers.add(toPos, targetUser);
+                    mAdapter.notifyItemMoved(fromPos,toPos);
+                    return true;// true if moved, false otherwise
+                }
+                public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                    final int position = viewHolder.getAdapterPosition();
+                    listPlayers.remove(position);
+                    mAdapter.notifyItemRemoved(position);
+                }
+            });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        RecyclerView Recycler = findViewById(R.id.RecyclerView);
+        recyclerView = findViewById(R.id.RecyclerView);
         layoutManager = new LinearLayoutManager(this);
         getPlayers();
-        MyRecyclerAdapter arrayAdapter1 = new MyRecyclerAdapter(listPlayers);
-        Recycler.setAdapter(arrayAdapter1);
-        Recycler.setLayoutManager(layoutManager);
-
+        mAdapter = new MyRecyclerAdapter(listPlayers);
+        recyclerView.setAdapter(mAdapter);
+        recyclerView.setLayoutManager(layoutManager);
+        mIth.attachToRecyclerView(recyclerView);
     }
     //Todo create method that will fill list of players
     public void getPlayers(){
