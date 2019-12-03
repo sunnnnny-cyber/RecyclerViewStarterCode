@@ -4,11 +4,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
+    <SearchView
+
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search people" />
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/RecyclerView"
         />
+
 <!--  Todo add recycler view -->
 <!--  Todo add another xml file that will hold single_player_view -->
 </RelativeLayout>
