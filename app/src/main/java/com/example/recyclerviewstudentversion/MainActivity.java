@@ -68,6 +68,5 @@ public class MainActivity extends AppCompatActivity {
         listPlayers.add(new Player("Miro Jurisic",79,(long)20000000,"Badminton",R.drawable.miro));
         listPlayers.add(new Player("Rookie Song",22,(long)200088888,"Electonic Sport",R.drawable.yijin));
         listPlayers.add(new Player("Tetsuya Kuroko",16,(long)2000,"Basketball",R.drawable.kuroko));
-
     }
 }
