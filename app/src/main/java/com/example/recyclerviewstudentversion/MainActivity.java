@@ -8,7 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.GridView;
+import android.widget.SearchView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +20,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     // Todo initialize these variables
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter mAdapter;
+    private MyRecyclerAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     List<Player> listPlayers;
     List<Player> players;
@@ -50,6 +54,36 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         mIth.attachToRecyclerView(recyclerView);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+
+        MenuItem item = menu.findItem(R.id.searchView);
+        SearchView search = (SearchView) item.getActionView();
+        search.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                if(listPlayers.contains(query)){
+                    mAdapter.getFilter().filter(query);
+                }else{
+                    Toast.makeText(MainActivity.this, "No Match found",Toast.LENGTH_LONG).show();
+                }
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                //    adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
     //Todo create method that will fill list of players
     public void getPlayers(){
         listPlayers = new ArrayList<>();
