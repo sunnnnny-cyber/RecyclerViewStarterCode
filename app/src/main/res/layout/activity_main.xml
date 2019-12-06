@@ -12,6 +12,15 @@
         android:id="@+id/RecyclerView"
         />
 
-<!--  Todo add recycler view -->
+  <SearchView
+        android:id="@+id/searchVieww"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:queryHint="Search Here"
+        android:iconifiedByDefault="false"
+        android:layout_alignParentTop="true"
+        />
+    <!--  Todo add recycler view -->
+
 <!--  Todo add another xml file that will hold single_player_view -->
 </RelativeLayout>
