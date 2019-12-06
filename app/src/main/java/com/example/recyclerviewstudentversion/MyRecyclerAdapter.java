@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -21,13 +24,16 @@ import java.util.List;
 //onCreateViewHolder()
 //onBindViewHolder
 //getItemCount
-public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.MyViewHolder> {
+public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.MyViewHolder> implements Filterable {
     List<Player> listOfPlayers;
+    List<Player> listOfPlayersFull;
     Context context;
     int posi;
 
     public MyRecyclerAdapter(@NonNull List<Player> objects) {
         listOfPlayers = objects;
+        listOfPlayersFull=new ArrayList<>(listOfPlayers);
+
     }
 
     @NonNull
@@ -48,7 +54,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
         holder.sport.setText(listOfPlayers.get(position).getMain_sport()+"");
         int i = listOfPlayers.get(position).getImage();
         holder.imageView.setImageResource(i);
-        }
+    }
 
     @Override
     public int getItemCount() {
@@ -74,4 +80,37 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
             imageView = single_player_view.findViewById(R.id.ima);
         }
     }
+
+    @Override
+    public Filter getFilter() {
+        return exampleFilter;
+    }
+    private Filter exampleFilter= new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Player> filteredList=new ArrayList<>();
+            if (constraint==null||constraint.length()==0){
+                filteredList.addAll(listOfPlayersFull);
+            }
+            else{
+                String filterPattern=constraint.toString().toLowerCase().trim();
+                for(Player item: listOfPlayersFull ){
+                    if(item.getName().toLowerCase().contentEquals(filterPattern)){
+                        filteredList.add(item);
+                    }
+                }
+
+            }
+            FilterResults results=new FilterResults();
+            results.values=filteredList;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            listOfPlayers.clear();
+            listOfPlayers.addAll((List) results.values);
+            notifyDataSetChanged();
+        }
+    };
 }
