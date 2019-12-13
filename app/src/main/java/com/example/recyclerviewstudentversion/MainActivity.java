@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.SearchView;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,7 +12,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridView;
-import android.widget.SearchView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -66,22 +66,26 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String query) {
 
-                if(listPlayers.contains(query)){
-                    mAdapter.getFilter().filter(query);
-                }else{
-                    Toast.makeText(MainActivity.this, "No Match found",Toast.LENGTH_LONG).show();
-                }
+                //if(listPlayers.contains(query)){
+                //mAdapter.getFilter().filter(query);
+                //}else{
+                //  Toast.makeText(MainActivity.this, "No Match found",Toast.LENGTH_LONG).show();
+                //}
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                //    adapter.getFilter().filter(newText);
+                //if(listPlayers.contains(newText)){
+                mAdapter.getFilter().filter(newText);
+                //}else{
+                //Toast.makeText(MainActivity.this, "No Match found",Toast.LENGTH_LONG).show();
+                //}
                 return false;
             }
         });
 
-        return super.onCreateOptionsMenu(menu);
+        return true;
     }
 
     //Todo create method that will fill list of players
